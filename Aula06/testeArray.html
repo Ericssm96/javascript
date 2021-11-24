@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body    {
+            font: normal 30pt Arial;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        function confereArray(a, b) {
+            if (a.length != b.length){
+                return false;
+            }
+
+            for (i = 0; i<a.length; i++){
+                if (a[i] != b[i]){
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        var lista1 = [4, 6, 7, 1];
+        var lista2 = [4, 6, 7, 1];
+
+        if(confereArray(lista1, lista2)){
+            document.write('Verdadeiro');
+        }
+        else {
+            document.write('Falso');
+        }
+    </script>
+</body>
+</html>

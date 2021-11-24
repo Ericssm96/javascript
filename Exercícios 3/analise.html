@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Números de Forma Inteligente e Rápida</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:wght@300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="analise.css">
+</head>
+<body>
+    <header>
+        <h1>Analisando Números</h1>
+    </header>
+
+    <section class="caixaConteudo" id="caixaConteudo">
+        <form>
+            <label>Número (de 1 a 100): <input type="number" id="entradaNumero" autofocus></label>
+            <input type="button" value="Adicionar" onclick="adicionar()">
+        </form>
+        <div>
+            <select id="listaValores" size="6">
+                
+            </select>
+            <input type="button" value="Verificar!" onclick="verificar()">
+            <p id="dadosAnalise"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Esfano Enterprises 2019-2021</p>
+    </footer>
+
+    <script src="analise.js"></script>
+</body>
+</html>

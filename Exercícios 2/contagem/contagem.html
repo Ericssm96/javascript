@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:wght@300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contagem.css">
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+
+    <section class="caixaConteudo" id="caixaConteudo">
+        <form>
+            <label for="numInicial">Início: <input type="number" name="numInicial" id="numInicial"></label><br>
+            <label for="numFinal">Fim: <input type="number" name="numFinal" id="numFinal"></label><br>
+            <label for="numPasso">Passo: <input type="number" name="numPasso" id="numPasso"></label><br>
+            <input type="button" value="Vamos Contar!" onclick="contar()">
+        </form>
+        <div id="res">
+            
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Esfano Enterprises 2019-2021</p>
+    </footer>
+    <script src="contagem.js"></script>
+</body>
+</html>

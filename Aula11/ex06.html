@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <h1>Sistema de Excesso de Velocidade.</h1>
+
+    <input type="number" name="txtvel" id="txtvel">
+    <input type="button" value="Verifique!" onclick="verificar()">
+
+    <div id="res">
+
+
+    </div>
+    <script>
+        function verificar() {
+            var txtv = window.document.querySelector("#txtvel");
+            var vel = Number(txtv.value);
+            var res = document.querySelector("#res");
+            
+            res.innerHTML = `<p>Sua velocidade atual é: <strong>${vel}</strong>.`;
+            if (vel > 60){
+                res.innerHTML += '<p>Você está acima da velocidade, portanto está multado.</p>';
+            }
+            res.innerHTML += '<p>Dirija Sempre com cuidado.</p>';
+        }
+    </script>
+</body>
+</html>

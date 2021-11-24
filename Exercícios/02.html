@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:wght@300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="idades.css">
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <main class="caixa">
+        <form>
+            <label for="anonasc">Ano de nascimento: <input type="number" name="anonasc" id="anonasc" class="anonasc"></label>
+
+            <div class="fieldset">
+                <fieldset>
+                    <legend class="escolhaSexo">Sexo:</legend>
+                    <label for="sexoFem"><input type="radio" name="sexo" id="sexoFem" class="opcoes"> Feminino</label>
+                    <label for="sexoMasc"><input type="radio" name="sexo" id="sexoMasc" class="opcoes"> Masculino</label>
+                </fieldset>
+            </div>
+
+            <input type="button" value="Verificar" id="verificar" class="verificar" onclick="verifica()">
+        </form>
+
+        <div id="resultado" class="resultado"><p>Verifique para obter o resultado!</p></div>
+    </main>
+    <footer class="rodape">
+        <p>&copy; Esfano Enterprises</p>
+    </footer>
+
+    <script>
+
+        
+        function verifica(){
+            var data = new Date();
+            var txtanoform = window.document.getElementById('anonasc');
+            var sexomasc = document.getElementById('sexoMasc').checked;
+            var sexofem = document.getElementById('sexoFem').checked;
+            var anoatual = data.getFullYear();
+            var txtanoform = window.document.getElementById('anonasc');
+            var anonasc = Number(txtanoform.value);
+            var anosTotal = anoatual - anonasc;
+            var res = document.getElementById('resultado');
+
+            if (anonasc > anoatual || anonasc.length == 0 || !sexofem && !sexomasc){
+                alert('Erro!!! Digite um valor válido!')
+            } else if (anosTotal < 5 && sexomasc){
+                res.innerHTML = '<p>AAAA um bebezinho!!! Que fofo!!!</p><img src="img/hbebe.png" alt="Um bebêzinho homem">'
+            } else if (anosTotal < 5 && sexofem) {
+                res.innerHTML = '<p>AAAA um bebezinho!!! Que fofo!!!</p><img src="img/mbebe.png" alt="Uma bebezinha">'
+            } else if (anosTotal < 14 && sexomasc) {
+                res.innerHTML = '<p>Você não devia estar com os pais?</p><img src="img/hcrianca.png" alt="Um garoto">'
+            } else if (anosTotal < 14 && sexofem) {
+                res.innerHTML = '<p>Você não devia estar com os pais?</p><img src="img/mcrianca.png" alt="Uma garota">'
+            } else if (anosTotal < 21 && sexomasc) {
+                res.innerHTML = '<p>Ninguém te suporta</p><img src="img/hadolescente.png" alt="Um garoto adolescente">'
+            } else if (anosTotal < 21 && sexofem) {
+                res.innerHTML = '<p>Ninguém te suporta</p><img src="img/madolescente.png" alt="Uma garota adolescente">'
+            } else if (anosTotal < 41 && sexomasc) {
+                res.innerHTML = '<p>A idade do sucesso! kkcry..</p><img src="img/hmais20.png" alt="Um homem com mais de 20 anos.">'
+            } else if (anosTotal < 41 && sexofem) {
+                res.innerHTML = '<p>A idade do sucesso! kkcry..</p><img src="img/mmais20.png" alt="Uma mulher com mais de 20 anos.">'
+            } else if (anosTotal < 61 && sexomasc) {
+                res.innerHTML = '<p>Rapaz o senhor é experiente mesmo viu?</p><img src="img/hmais40.png" alt="Um homem com mais de 40 anos.">'
+            } else if (anosTotal < 61 && sexofem) {
+                res.innerHTML = '<p>Rapaz a senhora é experiente mesmo viu?</p><img src="img/mmais40.png" alt="Uma mulher com mais de 40 anos.">'
+            } else if (anosTotal < 131 && sexomasc) {
+                res.innerHTML = '<p>Bom dia, Vovô!</p><img src="img/hmais60.png" alt="Um homem com mais de 60 anos.">'
+            } else if (anosTotal < 131 && sexofem) {
+                res.innerHTML = '<p>Bom dia, Vovó!</p><img src="img/mmais60.png" alt="Uma mulher com mais de 60 anos.">'
+            } else {
+                alert('Para de mentir, cara...')
+            }
+        }
+    </script>
+</body>
+</html>
