@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <input type="color">
+
+    <script>
+        var tela = document.querySelector('canvas');
+        var ctx = tela.getContext('2d');
+        var desenha = false;
+        var cor = document.querySelector('input');
+        ctx.fillStyle = 'lightgray';
+        ctx.fillRect(0, 0, 600, 400);
+
+        tela.onmousedown = function (){
+            desenha = true;
+        }
+
+        tela.onmouseup = function (){
+            desenha = false;
+        }
+
+        function criaBola(evento){
+            var cor = document.querySelector('input');
+            if (desenha){
+                var x = evento.pageX - tela.offsetLeft;
+                var y = evento.pageY - tela.offsetTop;
+
+                ctx.beginPath();
+                ctx.fillStyle = cor.value;
+                ctx.arc(x, y, 10, 0, 2 * 3.14);
+                ctx.fill();
+            }
+        }
+
+        tela.onmousemove = criaBola;
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        var tela = document.getElementsByTagName('canvas')[0];
+        var ctx = tela.getContext('2d');
+        var x = 1;
+
+        ctx.fillStyle = 'lightgray';
+        ctx.fillRect(0, 0, 600, 400);
+
+        function desenhaCirculo(x, y, raio){
+            ctx.fillStyle = 'royalblue';
+            ctx.beginPath();
+            ctx.arc(x, y, raio, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function limpaTela() {
+            ctx.clearRect(0, 0, 600, 400)
+        }
+
+        function atualizaTela(){
+            limpaTela();
+            desenhaCirculo(x, 20, 10);
+            x++;
+        }
+
+        setInterval(atualizaTela, 500)
+    </script>
+</body>
+</html>

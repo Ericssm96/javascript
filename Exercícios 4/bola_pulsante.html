@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        let x = 20;
+        let tela = document.querySelector('canvas');
+        let pincel = tela.getContext('2d');
+        let chegou = false;
+        let raio = 20;
+        let alteraRaio = 0;
+
+        function desenhaCirculo(x, y, raio){
+            pincel.fillStyle = 'wheat';
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+
+        function limpaTela() {
+            pincel.fillStyle = 'crimson';
+            pincel.beginPath();
+            pincel.fillRect(0, 0, 600, 400);
+        }
+
+        function toggleChegou(){
+            if (x == 580){
+                chegou = true;
+            } else if (x == 20){
+                chegou = false;
+            }
+        }
+
+        function atualizaTela() {
+            limpaTela();
+            desenhaCirculo(x, 30, raio);
+            toggleChegou();
+            if (raio == 30){
+                alteraRaio = -1;
+            } else if (raio == 20){
+                alteraRaio = 1;
+            }
+            if (chegou) {
+                x --;
+            } else {
+                x ++
+            }
+            raio += alteraRaio;
+        }
+
+        setInterval(atualizaTela, 15);
+        
+    </script>
+</body>
+</html>

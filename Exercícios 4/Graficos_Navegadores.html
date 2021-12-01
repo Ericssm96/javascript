@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Navegadores mais usados em 2015 e 2016.</title>
+</head>
+<body>
+    <canvas width="600px" height = "400px"></canvas>
+
+    <script>
+    var serie2015 = [50, 25, 20, 5];
+    var serie2016 = [65, 20, 13, 2];
+    var conjCores = ['darkblue', 'darkgreen', 'crimson', 'yellow'];
+
+
+    function desenhaTexto(txt, x, y){
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.font = 'bolder 15px Courier New';
+        pincel.fillStyle = 'black';
+        pincel.fillText(txt, x, y);
+    }
+
+    function criarQuadrado(x, y, largura, altura, cor){
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, largura, altura);
+        pincel.beginPath();
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, largura, altura);
+    }
+
+    function criarBarra(x, y, serie, cores, texto){
+        desenhaTexto(texto, x, y);
+        var altura = y + 20;
+        for(i=0; i<serie.length; i++){
+            criarQuadrado(x, altura, 50, serie[i], cores[i]);
+            altura += serie[i];
+        }
+    }
+
+    criarBarra(30, 50, serie2015, conjCores, '2015');
+    criarBarra(100, 50, serie2016, conjCores, '2016');
+    </script>
+</body>
+</html>
